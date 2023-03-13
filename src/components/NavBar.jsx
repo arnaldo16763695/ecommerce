@@ -2,9 +2,9 @@ import React from "react";
 
 const NavBar = () => {
   return (
-    <div>
-      <nav className="navbar navbar-expand-lg  bg-white py-3 shadow-sm">
-        <div className="container">
+    <div >
+      <nav className="navbar navbar-expand-lg  bg-white py-3 shadow-sm ">
+        <div className="container-fluid">
           <a className="navbar-brand fw-bold fs-4" href="#">
             LA COLECCIÓN
           </a>
@@ -45,15 +45,15 @@ const NavBar = () => {
             <div className="buttons">
               <a href="" className="btn btn-outline-dark">
                 {" "}
-                <i class="fa fa-sign-in me-1" aria-hidden="true"></i> Login
+                <i className="fa fa-sign-in me-1" aria-hidden="true"></i> Login
               </a>
               <a href="" className="btn btn-outline-dark ms-2">
                 {" "}
-                <i class="fa fa-user-plus me-1" aria-hidden="true"></i> Register
+                <i className="fa fa-user-plus me-1" aria-hidden="true"></i> Register
               </a>
               <a href="" className="btn btn-outline-dark ms-2">
                 {" "}
-                <i class="fa fa-shopping-cart me-1" aria-hidden="true"></i> Cart(0)
+                <i className="fa fa-shopping-cart me-1" aria-hidden="true"></i> Cart(0)
               </a>
             </div>
           </div>
