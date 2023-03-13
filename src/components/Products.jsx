@@ -9,13 +9,21 @@ const Products = () => {
   useEffect(() => {
     const getProducts = async () => {
       setLoading(true);
-
-      const res = await fetch("https://fakestoreapi.com/products");
       if (componentMount) {
-        setData(await res.clone().json());
-        setFilter(await res.json());
-        setLoading(false);
-        console.log(filter);
+        try {
+          const res = await fetch("https://fakestoreapi.com/products"),
+            json = await res.json();
+          if (!res.ok) throw { status: res.status, statusText: res.statusText };
+          setData(json);
+          setFilter(json);
+          setLoading(false);
+          //console.log(res)
+        } catch (error) {
+          let message = error.status || "Ocurrió un error de conexion con la api";
+          console.log(error.status || "", message);
+        }
+
+        //console.log(filter);
       }
       return () => {
         componentMount = false;
@@ -44,10 +52,10 @@ const Products = () => {
       </>
     );
   };
-  const filterProduct=(cat)=>{
-    const updateList = data.filter((el)=>el.category === cat);
+  const filterProduct = (cat) => {
+    const updateList = data.filter((el) => el.category === cat);
     setFilter(updateList);
-  }
+  };
   const ShowProducts = () => {
     return (
       <>
@@ -86,7 +94,7 @@ const Products = () => {
         {filter.map((product) => {
           return (
             <div className="col-md-3 mb-4" key={product.id}>
-              <div className="card h-100 text-center p-4" >
+              <div className="card h-100 text-center p-4">
                 <img
                   src={product.image}
                   className="card-img-top"
