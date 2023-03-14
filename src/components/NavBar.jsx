@@ -1,13 +1,14 @@
 import React from "react";
+import {Link, Outlet} from 'react-router-dom'
 
 const NavBar = () => {
   return (
     <div >
       <nav className="navbar navbar-expand-lg  bg-white py-3 shadow-sm ">
         <div className="container-fluid">
-          <a className="navbar-brand fw-bold fs-4" href="#">
+          <Link className="navbar-brand fw-bold fs-4" to={"/"}>
             LA COLECCIÓN
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -22,24 +23,24 @@ const NavBar = () => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
+                <Link className="nav-link active" aria-current="page" to="/">
                   Home
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <Link className="nav-link" to="products">
                   Productos
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <Link className="nav-link" to="about">
                   Acerca
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <Link className="nav-link" to="contact">
                   Contacto
-                </a>
+                </Link>
               </li>
             </ul>
             <div className="buttons">
@@ -59,6 +60,9 @@ const NavBar = () => {
           </div>
         </div>
       </nav>
+      <div id="content">
+      <Outlet />
+      </div>
     </div>
   );
 };
